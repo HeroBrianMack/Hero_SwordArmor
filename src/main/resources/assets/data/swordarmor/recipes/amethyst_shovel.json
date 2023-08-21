@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " W ",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+    "result": {
+      "item": "swordarmor:amethyst_shovel",
+      "count": 1
+    }
+  }

@@ -1,6 +1,7 @@
 package net.hero.swordarmor;
 
 import net.fabricmc.api.ModInitializer;
+import net.hero.swordarmor.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +13,6 @@ public class SwordArmor implements ModInitializer {
 	public void onInitialize() {
 
 
-		LOGGER.info("Hello Fabric world!");
+		ModItems.registerModItems();
 	}
 }

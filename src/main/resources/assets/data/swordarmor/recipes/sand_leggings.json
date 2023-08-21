@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "W W",
+    "W W"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:sand"
+    }
+  },
+    "result": {
+      "item": "swordarmor:sand_leggings",
+      "count": 1
+    }
+  }

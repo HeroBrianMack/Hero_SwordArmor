@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WW ",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:deepslate"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+    "result": {
+      "item": "swordarmor:slate_hoe",
+      "count": 1
+    }
+  }
