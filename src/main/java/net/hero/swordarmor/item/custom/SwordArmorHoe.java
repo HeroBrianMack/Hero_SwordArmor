@@ -5,7 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
 
-public class SwordArmorHoe extends ModHoeItem {
+public class SwordArmorHoe extends HoeItem {
 
     public SwordArmorHoe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
