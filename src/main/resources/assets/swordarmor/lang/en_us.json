@@ -26,5 +26,7 @@
   "item.swordarmor.sand_helmet": "Sand Helmet",
   "item.swordarmor.sand_chestplate": "Sand Chestplate",
   "item.swordarmor.sand_leggings": "Sand Leggings",
-  "item.swordarmor.sand_boots": "Sand Boots"
+  "item.swordarmor.sand_boots": "Sand Boots",
+  "itemGroup.swordarmor.sword": "Tools",
+  "itemGroup.swordarmor.armor": "Armors"
 }

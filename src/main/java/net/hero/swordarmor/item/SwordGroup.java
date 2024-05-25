@@ -7,11 +7,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
 public class SwordGroup {
-    public static final ItemGroup SAND_SWORD = FabricItemGroupBuilder.build(
-            new Identifier(SwordArmor.MOD_ID, "sword"), () -> new ItemStack(ModItems.SLATE_HOE));
+
+    public static final ItemGroup Tools = FabricItemGroupBuilder.build(
+            new Identifier(SwordArmor.MOD_ID, "sword"), () -> new ItemStack(ModItems.SLATE_AXE));
     public static final ItemGroup AMETHYST_HELMET = FabricItemGroupBuilder.build(
-            new Identifier(SwordArmor.MOD_ID, "armor"), () -> new ItemStack(ModItems.SLATE_HOE));
-    public static final ItemGroup AMETHYST_TOOL = FabricItemGroupBuilder.build(
-            new Identifier(SwordArmor.MOD_ID, "sword"), () -> new ItemStack(ModItems.SLATE_HOE));
+            new Identifier(SwordArmor.MOD_ID, "armor"), () -> new ItemStack(ModItems.AMETHYST_CHESTPLATE));
 
 }

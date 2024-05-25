@@ -11,7 +11,7 @@ import net.minecraft.util.Lazy;
 
 import java.util.function.Supplier;
 
-public enum ModArmorMaterials implements ArmorMaterial {
+public enum ModArmorMaterials implements ArmorMaterial, ModMaterials {
     AMETHYST("amethyst", 30, new int[]{3, 6, 8, 3}, 20, SoundEvents.BLOCK_AMETHYST_CLUSTER_STEP, 2.0F, 0.0F, () -> {
         return Ingredient.ofItems(new ItemConvertible[]{Items.AMETHYST_SHARD});
     }),

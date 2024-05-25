@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 import static net.minecraft.item.Items.*;
 
-public enum ModToolMaterials implements ToolMaterial {
+public enum ModToolMaterials implements ToolMaterial, ModMaterials {
     AMETHYST(3, 1256, 8.0F, 5F, 30,
             () -> Ingredient.ofItems(AMETHYST_SHARD)),
     SLATE(1, 88, 4.0F, 3F, 8,

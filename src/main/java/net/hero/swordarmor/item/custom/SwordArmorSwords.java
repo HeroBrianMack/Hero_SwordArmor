@@ -1,22 +1,15 @@
 package net.hero.swordarmor.item.custom;
 
-import com.google.common.collect.ImmutableMap;
-import net.hero.swordarmor.item.ModToolMaterials;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.world.World;
 
-import java.util.Map;
-
 public class SwordArmorSwords extends SwordItem {
 
-    private static final Map<ToolMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
+/*    private static final Map<ToolMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ToolMaterial, StatusEffectInstance>())
                     .put(ModToolMaterials.AMETHYST,
                             new StatusEffectInstance(StatusEffects.GLOWING, 60, 0)).build();
@@ -33,21 +26,20 @@ public class SwordArmorSwords extends SwordItem {
                     .put(ModToolMaterials.SAND,
                             new StatusEffectInstance(StatusEffects.NAUSEA, 200, 0)).build();
 
-
+*/
 
 
     public SwordArmorSwords(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material,attackDamage, attackSpeed, settings);
 
     }
-
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (!world.isClient()) {
             if (entity instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) entity;
-                if (swordHeld(player)) {
-                    evaluateSwordEffects(player);
+                if (ModItemEffects.itemHeld(player)) {
+                    ModItemEffects.evaluateEffects(player);
                 }
             }
         }
@@ -55,7 +47,7 @@ public class SwordArmorSwords extends SwordItem {
         super.inventoryTick(stack, world, entity, slot, selected);
     }
 
-    private void evaluateSwordEffects(PlayerEntity player) {
+/*    private void evaluateSwordEffects(PlayerEntity player) {
         for (Map.Entry<ToolMaterial, StatusEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
             ToolMaterial mapToolMaterial = entry.getKey();
             StatusEffectInstance mapStatusEffect = entry.getValue();
@@ -116,8 +108,9 @@ public class SwordArmorSwords extends SwordItem {
         else {
             return false;
         }
-    }
+    } */
 }
+
 
 
 

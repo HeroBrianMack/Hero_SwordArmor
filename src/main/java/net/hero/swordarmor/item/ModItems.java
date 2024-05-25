@@ -11,49 +11,49 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     public static final Item SAND_SWORD = registerItem("sand_sword",
             new SwordArmorSwords(ModToolMaterials.SAND, 2, -2.4f,
-                    new FabricItemSettings().group(SwordGroup.SAND_SWORD)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item AMETHYST_SWORD = registerItem("amethyst_sword",
             new SwordArmorSwords(ModToolMaterials.AMETHYST, 1, -2.4f,
-                    new FabricItemSettings().group(SwordGroup.AMETHYST_TOOL)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item SLATE_SWORD = registerItem("slate_sword",
             new SwordArmorSwords(ModToolMaterials.SLATE, 1, -2.4f,
-                    new FabricItemSettings().group(SwordGroup.SAND_SWORD)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item SLATE_PICKAXE = registerItem("slate_pickaxe",
             new SwordArmorPickaxe(ModToolMaterials.SLATE, -2, -2.8f,
-                    new FabricItemSettings().group(SwordGroup.SAND_SWORD)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item AMETHYST_PICKAXE = registerItem("amethyst_pickaxe",
             new SwordArmorPickaxe(ModToolMaterials.AMETHYST, -1, -2.8f,
-                    new FabricItemSettings().group(SwordGroup.AMETHYST_TOOL)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item SAND_PICKAXE = registerItem("sand_pickaxe",
             new SwordArmorPickaxe(ModToolMaterials.SAND, -1, -2.8f,
-                    new FabricItemSettings().group(SwordGroup.SAND_SWORD)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item SAND_AXE = registerItem("sand_axe",
             new SwordArmorAxe(ModToolMaterials.SAND, 5, -3.2f,
-                    new FabricItemSettings().group(SwordGroup.SAND_SWORD)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item SLATE_AXE = registerItem("slate_axe",
             new SwordArmorAxe(ModToolMaterials.SLATE, 5,-3.1f,
-                    new FabricItemSettings().group(SwordGroup.SAND_SWORD)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item AMETHYST_AXE = registerItem("amethyst_axe",
             new SwordArmorAxe(ModToolMaterials.AMETHYST, 3,-3f,
-                    new FabricItemSettings().group(SwordGroup.AMETHYST_TOOL)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item SLATE_HOE = registerItem("slate_hoe",
             new SwordArmorHoe(ModToolMaterials.SLATE, -3, -2f,
-                    new FabricItemSettings().group(SwordGroup.SAND_SWORD)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item SAND_HOE = registerItem("sand_hoe",
             new SwordArmorHoe(ModToolMaterials.SAND, -1, -3f,
-                    new FabricItemSettings().group(SwordGroup.SAND_SWORD)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item AMETHYST_HOE = registerItem("amethyst_hoe",
             new SwordArmorHoe(ModToolMaterials.AMETHYST, -5, 0f,
-                    new FabricItemSettings().group(SwordGroup.AMETHYST_TOOL)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item AMETHYST_SHOVEL = registerItem("amethyst_shovel",
             new SwordArmorShovel(ModToolMaterials.AMETHYST, -3.5f, -3f,
-                    new FabricItemSettings().group(SwordGroup.AMETHYST_TOOL)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item SAND_SHOVEL = registerItem("sand_shovel",
             new SwordArmorShovel(ModToolMaterials.SAND, .5f, -3f,
-                    new FabricItemSettings().group(SwordGroup.SAND_SWORD)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item SLATE_SHOVEL = registerItem("slate_shovel",
             new SwordArmorShovel(ModToolMaterials.SLATE, -.5f, -3f,
-                    new FabricItemSettings().group(SwordGroup.SAND_SWORD)));
+                    new FabricItemSettings().group(SwordGroup.Tools)));
     public static final Item AMETHYST_HELMET = registerItem("amethyst_helmet",
             new SwordArmorArmors(ModArmorMaterials.AMETHYST, EquipmentSlot.HEAD,
                     new FabricItemSettings().group(SwordGroup.AMETHYST_HELMET)));

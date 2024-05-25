@@ -13,8 +13,8 @@
       "item": "minecraft:stick"
     }
   },
-    "result": {
-      "item": "swordarmor:amethyst_pickaxe",
-      "count": 1
-    }
+  "result": {
+    "item": "swordarmor:amethyst_pickaxe",
+    "count": 1
   }
+}
