@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    "W W",
+    "WWW",
+    "WWW"
+  ],
+  "result": {
+    "item": "swordarmor:sand_chestplate"
+  }
+}

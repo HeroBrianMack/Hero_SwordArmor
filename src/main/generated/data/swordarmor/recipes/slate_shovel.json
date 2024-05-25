@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "minecraft:deepslate"
+    }
+  },
+  "pattern": [
+    " W ",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "item": "swordarmor:slate_shovel"
+  }
+}

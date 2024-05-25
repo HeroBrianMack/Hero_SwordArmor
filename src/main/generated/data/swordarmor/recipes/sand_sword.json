@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    " W ",
+    " W ",
+    " S "
+  ],
+  "result": {
+    "item": "swordarmor:sand_sword"
+  }
+}

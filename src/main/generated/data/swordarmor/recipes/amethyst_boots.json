@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "pattern": [
+    "W W",
+    "W W",
+    "   "
+  ],
+  "result": {
+    "item": "swordarmor:amethyst_boots"
+  }
+}

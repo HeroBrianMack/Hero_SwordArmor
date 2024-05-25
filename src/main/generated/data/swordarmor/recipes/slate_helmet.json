@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "minecraft:deepslate"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "W W",
+    "   "
+  ],
+  "result": {
+    "item": "swordarmor:slate_helmet"
+  }
+}

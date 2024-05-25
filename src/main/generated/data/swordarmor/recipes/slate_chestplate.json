@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "minecraft:deepslate"
+    }
+  },
+  "pattern": [
+    "W W",
+    "WWW",
+    "WWW"
+  ],
+  "result": {
+    "item": "swordarmor:slate_chestplate"
+  }
+}
