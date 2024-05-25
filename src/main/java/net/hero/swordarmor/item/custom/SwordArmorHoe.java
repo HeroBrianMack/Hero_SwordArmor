@@ -7,6 +7,13 @@ import net.minecraft.world.World;
 
 public class SwordArmorHoe extends HoeItem {
 
+    /**
+     * Constructor for a hoe from the SwordArmor Mod.
+     * @param material The material the hoe is made from.
+     * @param attackDamage The attack damage of the hoe.
+     * @param attackSpeed The attack speed of the hoe.
+     * @param settings The settings (typically ItemGroup) of the hoe.
+     */
     public SwordArmorHoe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }

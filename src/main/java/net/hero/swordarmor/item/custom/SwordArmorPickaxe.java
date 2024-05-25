@@ -9,6 +9,13 @@ import net.minecraft.world.World;
 
 public class SwordArmorPickaxe extends PickaxeItem {
 
+    /**
+     * Constructor for a pickaxe from the SwordArmor Mod.
+     * @param material The material the pickaxe is made from.
+     * @param attackDamage The attack damage of the pickaxe.
+     * @param attackSpeed The attack speed of the pickaxe.
+     * @param settings The settings (typically ItemGroup) of the pickaxe.
+     */
     public SwordArmorPickaxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
 

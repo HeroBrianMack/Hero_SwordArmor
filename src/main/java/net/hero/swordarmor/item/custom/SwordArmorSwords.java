@@ -9,26 +9,13 @@ import net.minecraft.world.World;
 
 public class SwordArmorSwords extends SwordItem {
 
-/*    private static final Map<ToolMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
-            (new ImmutableMap.Builder<ToolMaterial, StatusEffectInstance>())
-                    .put(ModToolMaterials.AMETHYST,
-                            new StatusEffectInstance(StatusEffects.GLOWING, 60, 0)).build();
-    private static final Map<ToolMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP2 =
-            (new ImmutableMap.Builder<ToolMaterial, StatusEffectInstance>())
-                    .put(ModToolMaterials.SLATE,
-                            new StatusEffectInstance(StatusEffects.HASTE, 60, 0)).build();
-    private static final Map<ToolMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP3 =
-            (new ImmutableMap.Builder<ToolMaterial, StatusEffectInstance>())
-                    .put(ModToolMaterials.SAND,
-                            new StatusEffectInstance(StatusEffects.SPEED, 60, 1)).build();
-    private static final Map<ToolMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP4 =
-            (new ImmutableMap.Builder<ToolMaterial, StatusEffectInstance>())
-                    .put(ModToolMaterials.SAND,
-                            new StatusEffectInstance(StatusEffects.NAUSEA, 200, 0)).build();
-
-*/
-
-
+    /**
+     * Constructor for a sword from the SwordArmor Mod.
+     * @param material The material the sword is made from.
+     * @param attackDamage The attack damage of the sword.
+     * @param attackSpeed The attack speed of the sword.
+     * @param settings The settings (typically ItemGroup) of the sword.
+     */
     public SwordArmorSwords(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material,attackDamage, attackSpeed, settings);
 

@@ -10,8 +10,13 @@ import net.minecraft.world.World;
 public class SwordArmorAxe extends AxeItem {
 
 
-
-
+    /**
+     * Constructor for an axe from the SwordArmor Mod.
+     * @param material The material the axe is made from.
+     * @param attackDamage The attack damage of the axe.
+     * @param attackSpeed The attack speed of the axe.
+     * @param settings The settings (typically ItemGroup) of the axe.
+     */
     public SwordArmorAxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
 
