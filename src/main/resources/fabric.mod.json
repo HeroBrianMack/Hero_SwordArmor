@@ -9,12 +9,12 @@
     "Hero"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/heros-sword-and-armor-mod",
+    "sources": "https://github.com/HeroBrianMack/Hero_SwordArmor"
   },
 
-  "license": "MIT License",
-  "icon": "assets/modid/icon.png",
+  "license": "CC0 1.0 Universal License",
+  "icon": "assets/modid/swordarmorlogo.png",
 
   "environment": "*",
   "entrypoints": {

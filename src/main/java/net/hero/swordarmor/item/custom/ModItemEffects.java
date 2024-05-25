@@ -28,13 +28,6 @@ public class ModItemEffects {
 
     }
 
-
-
-//    public ModItemEffects(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
-//        //super(material,attackDamage, attackSpeed, settings);
-//
-//    }
-
     public static void evaluateEffects(PlayerEntity player) {
         for (Map<ModMaterials, StatusEffectInstance> itemMap: mapList) {
             for (Map.Entry<ModMaterials, StatusEffectInstance> entry : itemMap.entrySet()) {
@@ -58,13 +51,6 @@ public class ModItemEffects {
     }
 
     public static boolean isCorrect(ModMaterials material, PlayerEntity player) {
-        if (material instanceof ModArmorMaterials) {
-            //System.out.println(material + " ARMOR");
-            return hasCorrectArmorOn(material, player);
-        } else if (material instanceof ModToolMaterials) {
-            //System.out.println(material + " TOOL");
-            return hasCorrectItemHeld(material, player);
-        }
         return (material instanceof ModArmorMaterials && hasCorrectArmorOn(material, player)) ||
                 (material instanceof ModToolMaterials && hasCorrectItemHeld(material, player));
     }
@@ -88,32 +74,25 @@ public class ModItemEffects {
             return false;
         }
     }
-    // Armor Section
-    public static boolean hasFullSuitOfArmorOn(PlayerEntity player) {
-        ItemStack boots = player.getInventory().getArmorStack(0);
-        ItemStack leggings = player.getInventory().getArmorStack(1);
-        ItemStack breastplate = player.getInventory().getArmorStack(2);
-        ItemStack helmet = player.getInventory().getArmorStack(3);
 
-        return !helmet.isEmpty() && !breastplate.isEmpty()
-                && !leggings.isEmpty() && !boots.isEmpty();
-    }
 
+    /**
+     * Checks if the player is wearing a full set of armor of a material.
+      * @param material The material to check for.
+     * @param player The player being checked.
+     * @return If the player's set of armor matches the material
+     */
     public static boolean hasCorrectArmorOn(ModMaterials material, PlayerEntity player) {
-        String test1 = player.getInventory().getArmorStack(0).getItem().toString();
-        String test2 = player.getInventory().getArmorStack(1).getItem().toString();
-        String test3 = player.getInventory().getArmorStack(2).getItem().toString();
-        String test4 = player.getInventory().getArmorStack(3).getItem().toString();
-        if (test1.contains("boots") && test2.contains("leggings") && test3.contains("chestplate") && test4.contains("helmet")) {
+        try {
             ArmorItem boots = ((ArmorItem) player.getInventory().getArmorStack(0).getItem());
             ArmorItem leggings = ((ArmorItem) player.getInventory().getArmorStack(1).getItem());
             ArmorItem chestplate = ((ArmorItem) player.getInventory().getArmorStack(2).getItem());
             ArmorItem helmet = ((ArmorItem) player.getInventory().getArmorStack(3).getItem());
             return helmet.getMaterial() == material && chestplate.getMaterial() == material &&
                     leggings.getMaterial() == material && boots.getMaterial() == material;
+        } catch (Exception e) {
+            // Non-valid Armor Exceptions
         }
-        else {
-            return false;
-        }
+        return false;
     }
 }

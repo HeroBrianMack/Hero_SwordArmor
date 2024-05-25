@@ -28,9 +28,9 @@ public class SwordArmorArmors extends ArmorItem {
         if (!world.isClient()) {
             if (entity instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) entity;
-                if (ModItemEffects.hasFullSuitOfArmorOn(player)) {
+                //if (ModItemEffects.hasFullSuitOfArmorOn(player)) {
                     evaluateEffects(player);
-                }
+                //}
             }
         }
 
