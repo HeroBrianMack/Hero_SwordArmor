@@ -11,7 +11,7 @@ import net.minecraft.item.*;
 import java.util.ArrayList;
 import java.util.Map;
 
-import static net.hero.swordarmor.item.custom.Effects.effectMake;
+import static net.hero.effects.Effects.effectMake;
 
 public class ModItemEffects {
     public static ArrayList<Map> mapList = new ArrayList<Map>();

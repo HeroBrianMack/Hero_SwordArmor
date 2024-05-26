@@ -1,4 +1,4 @@
-package net.hero.swordarmor.item.custom;
+package net.hero.effects;
 
 import net.hero.swordarmor.item.ModMaterials;
 import net.minecraft.entity.effect.StatusEffect;
