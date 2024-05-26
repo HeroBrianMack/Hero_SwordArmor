@@ -1,4 +1,5 @@
 package net.hero.swordarmor;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hero.swordarmor.item.ModItems;
@@ -8,7 +9,6 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 public class RecipeGen extends FabricRecipeProvider {
@@ -18,10 +18,6 @@ public class RecipeGen extends FabricRecipeProvider {
 
     @Override
     protected void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
-       // offerSmelting(exporter, List.of(ModBlocks.TANZANITE_ORE), ModItems.TANZANITE,
-         //       3f, 300, "tanzanite");
-
-        //offerReversibleCompactingRecipes(exporter, ModItems.TANZANITE, ModBlocks.TANZANITE_BLOCK);
 
         ShapedRecipeJsonBuilder.create(ModItems.AMETHYST_PICKAXE)
                 .pattern("WWW")
@@ -82,7 +78,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("WWW")
                 .pattern("W W")
                 .pattern("   ")
-                //.input('S', Items.STICK)
                 .input('W', Items.AMETHYST_SHARD)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -93,7 +88,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("W W")
                 .pattern("WWW")
                 .pattern("WWW")
-                //.input('S', Items.STICK)
                 .input('W', Items.AMETHYST_SHARD)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -104,7 +98,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("WWW")
                 .pattern("W W")
                 .pattern("W W")
-                //.input('S', Items.STICK)
                 .input('W', Items.AMETHYST_SHARD)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -115,7 +108,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("W W")
                 .pattern("W W")
                 .pattern("   ")
-                //.input('S', Items.STICK)
                 .input('W', Items.AMETHYST_SHARD)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -181,7 +173,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("WWW")
                 .pattern("W W")
                 .pattern("   ")
-                //.input('S', Items.STICK)
                 .input('W', Items.DEEPSLATE)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -192,7 +183,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("W W")
                 .pattern("WWW")
                 .pattern("WWW")
-                //.input('S', Items.STICK)
                 .input('W', Items.DEEPSLATE)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -203,7 +193,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("WWW")
                 .pattern("W W")
                 .pattern("W W")
-                //.input('S', Items.STICK)
                 .input('W', Items.DEEPSLATE)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -214,7 +203,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("W W")
                 .pattern("W W")
                 .pattern("   ")
-                //.input('S', Items.STICK)
                 .input('W', Items.DEEPSLATE)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -280,7 +268,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("WWW")
                 .pattern("W W")
                 .pattern("   ")
-                //.input('S', Items.STICK)
                 .input('W', Items.SAND)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -291,7 +278,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("W W")
                 .pattern("WWW")
                 .pattern("WWW")
-                //.input('S', Items.STICK)
                 .input('W', Items.SAND)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -302,7 +288,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("WWW")
                 .pattern("W W")
                 .pattern("W W")
-                //.input('S', Items.STICK)
                 .input('W', Items.SAND)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))
@@ -313,7 +298,6 @@ public class RecipeGen extends FabricRecipeProvider {
                 .pattern("W W")
                 .pattern("W W")
                 .pattern("   ")
-                //.input('S', Items.STICK)
                 .input('W', Items.SAND)
                 .criterion(RecipeProvider.hasItem(Items.STICK),
                         RecipeProvider.conditionsFromItem(Items.STICK))

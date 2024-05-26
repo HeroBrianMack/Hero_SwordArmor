@@ -4,19 +4,18 @@ import net.hero.swordarmor.item.ModMaterials;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Effects {
 
     /**
-     * The method to assign a status effect to a tool.
-     * @param effect
-     * @param duration
-     * @param amp
-     * @param material
-     * @return
+     * The method to assign a status effect to a material in a Map.
+     * @param effect The status effect.
+     * @param duration The duration of the effect.
+     * @param amp The amplifier of the effect.
+     * @param material The material.
+     * @return A Map with the material as a key, and the status effect as a value.
      */
     public static Map effectMake(StatusEffect effect, int duration, int amp, ModMaterials material) {
         Map temp = new HashMap<ModMaterials, StatusEffectInstance>();
@@ -24,6 +23,14 @@ public class Effects {
         return temp;
     }
 
+    /**
+     * The method that allows for multiple status effects to be given to a material in a Map
+     * @param effects The status effects.
+     * @param duration The duration of the effects.
+     * @param amp The amplifier of the effects.
+     * @param material The material.
+     * @return A Map with the material as a key, and the status effects as values.
+     */
     public static Map effectMake(StatusEffect[] effects, int duration, int amp, ModMaterials material) {
         for (StatusEffect effect: effects) {
             Map temp = new HashMap<ModMaterials, StatusEffectInstance>();
@@ -31,19 +38,6 @@ public class Effects {
             return temp;
         }
         return null;
-    }
-
-    /**
-     * The method to assign a status effect to an armor.
-     * @param effect
-     * @param duration
-     * @param amp
-     * @param material
-     * @return
-     */
-    public static void listAdd(ArrayList<Map> mapList, Map map) {
-
-        mapList.add(map);
     }
 
     /**
@@ -56,10 +50,4 @@ public class Effects {
     public static StatusEffectInstance statusEffect(StatusEffect effect, int duration, int amp) {
         return new StatusEffectInstance(effect, duration, amp);
     }
-
-    public static void allEffectsMake() {
-
-    }
-
-
 }

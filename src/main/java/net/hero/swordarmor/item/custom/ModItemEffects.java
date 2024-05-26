@@ -25,9 +25,12 @@ public class ModItemEffects {
         mapList.add(effectMake(StatusEffects.RESISTANCE, 60, 0, ModArmorMaterials.AMETHYST));
         mapList.add(effectMake(StatusEffects.NIGHT_VISION, 60, 0, ModArmorMaterials.SLATE));
         mapList.add(effectMake(StatusEffects.FIRE_RESISTANCE, 60, 0, ModArmorMaterials.SAND));
-
     }
 
+    /**
+     * Handles any effects given to a player by the SwordArmor mod.
+     * @param player The player to handle effects for.
+     */
     public static void evaluateEffects(PlayerEntity player) {
         for (Map<ModMaterials, StatusEffectInstance> itemMap: mapList) {
             for (Map.Entry<ModMaterials, StatusEffectInstance> entry : itemMap.entrySet()) {
@@ -41,6 +44,11 @@ public class ModItemEffects {
         }
     }
 
+    /**
+     * Gives the status effect to the player.
+     * @param player The player to give the status effect.
+     * @param mapStatusEffect The status effect to be given.
+     */
     public static void addStatusEffectForMaterial(PlayerEntity player, StatusEffectInstance mapStatusEffect) {
         boolean hasPlayerEffect = player.hasStatusEffect(mapStatusEffect.getEffectType());
 
@@ -50,18 +58,34 @@ public class ModItemEffects {
         }
     }
 
+    /**
+     * Checks if the player is wearing a set of armor or holding an item of the material.
+     * @param material The material to check for.
+     * @param player The player to check.
+     * @return If the player is wearing a set of armor or holding an item of the material.
+     */
     public static boolean isCorrect(ModMaterials material, PlayerEntity player) {
         return (material instanceof ModArmorMaterials && hasCorrectArmorOn(material, player)) ||
                 (material instanceof ModToolMaterials && hasCorrectItemHeld(material, player));
     }
 
-    // Item Checks
+    /**
+     * Checks if the player's hand is not empty.
+     * @param player The player to check.
+     * @return If the player's hand is not empty.
+     */
     public static boolean itemHeld(PlayerEntity player) {
         ItemStack hand = player.getInventory().getMainHandStack();
 
         return !hand.isEmpty();
     }
-    // Held Item Check
+
+    /**
+     * This method checks if a player is holding an item with the same material.
+     * @param material The material to check for.
+     * @param player The player to check.
+     * @return If the material matches the held item.
+     */
     public static boolean hasCorrectItemHeld(ModMaterials material, PlayerEntity player) {
         String test = (player.getInventory().getMainHandStack().getItem().toString());
         if (test.contains("sword") || test.contains("axe") || test.contains("hoe") || test.contains("shovel")) {
@@ -74,7 +98,6 @@ public class ModItemEffects {
             return false;
         }
     }
-
 
     /**
      * Checks if the player is wearing a full set of armor of a material.
