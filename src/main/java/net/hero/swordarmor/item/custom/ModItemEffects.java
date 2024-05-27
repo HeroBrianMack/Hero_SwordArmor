@@ -15,16 +15,16 @@ import static net.hero.effects.Effects.effectMake;
 
 public class ModItemEffects {
     public static ArrayList<Map> mapList = new ArrayList<Map>();
-    public static final Map<ModMaterials, StatusEffectInstance> AM_TOOL =
+    public static final Map<ModMaterials, StatusEffectInstance[]> AM_TOOL =
             effectMake(StatusEffects.GLOWING, 60, 0, ModToolMaterials.AMETHYST);
     static {
-        mapList.add(effectMake(StatusEffects.GLOWING, 60, 0, ModToolMaterials.AMETHYST));
+        /*mapList.add(effectMake(StatusEffects.GLOWING, 60, 0, ModArmorMaterials.AMETHYST));
         mapList.add(effectMake(StatusEffects.HASTE, 60, 0, ModToolMaterials.SLATE));
         mapList.add(effectMake(StatusEffects.SPEED, 60, 1, ModToolMaterials.SAND));
         mapList.add(effectMake(StatusEffects.NAUSEA, 200, 0, ModToolMaterials.SAND));
         mapList.add(effectMake(StatusEffects.RESISTANCE, 60, 0, ModArmorMaterials.AMETHYST));
         mapList.add(effectMake(StatusEffects.NIGHT_VISION, 60, 0, ModArmorMaterials.SLATE));
-        mapList.add(effectMake(StatusEffects.FIRE_RESISTANCE, 60, 0, ModArmorMaterials.SAND));
+        mapList.add(effectMake(StatusEffects.FIRE_RESISTANCE, 60, 0, ModArmorMaterials.SAND));*/
     }
 
     /**
@@ -32,12 +32,13 @@ public class ModItemEffects {
      * @param player The player to handle effects for.
      */
     public static void evaluateEffects(PlayerEntity player) {
-        for (Map<ModMaterials, StatusEffectInstance> itemMap: mapList) {
-            for (Map.Entry<ModMaterials, StatusEffectInstance> entry : itemMap.entrySet()) {
+        for (Map<ModMaterials, StatusEffectInstance[]> itemMap: mapList) {
+            for (Map.Entry<ModMaterials, StatusEffectInstance[]> entry : itemMap.entrySet()) {
                 ModMaterials mapMaterial = entry.getKey();
-                StatusEffectInstance mapStatusEffect = entry.getValue();
+                StatusEffectInstance[] mapStatusEffects = entry.getValue();
 
                 if (isCorrect(mapMaterial, player)) {
+                    for (StatusEffectInstance mapStatusEffect : mapStatusEffects)
                     addStatusEffectForMaterial(player, mapStatusEffect);
                 }
             }

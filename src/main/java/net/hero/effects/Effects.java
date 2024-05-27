@@ -18,7 +18,7 @@ public class Effects {
      * @return A Map with the material as a key, and the status effect as a value.
      */
     public static Map effectMake(StatusEffect effect, int duration, int amp, ModMaterials material) {
-        Map temp = new HashMap<ModMaterials, StatusEffectInstance>();
+        Map temp = new HashMap<ModMaterials, StatusEffectInstance[]>();
                 temp.put(material, new StatusEffectInstance(effect, duration, amp));
         return temp;
     }
@@ -32,14 +32,18 @@ public class Effects {
      * @return A Map with the material as a key, and the status effects as values.
      */
     public static Map effectMake(StatusEffect[] effects, int duration, int amp, ModMaterials material) {
+        Map temp = new HashMap<ModMaterials, StatusEffectInstance[]>();
         for (StatusEffect effect: effects) {
-            Map temp = new HashMap<ModMaterials, StatusEffectInstance>();
             temp.put(material, new StatusEffectInstance(effect, duration, amp));
-            return temp;
         }
-        return null;
+        return temp;
     }
 
+    public static Map effectMake(StatusEffectInstance[] effectInstances, ModMaterials material) {
+        Map temp = new HashMap<ModMaterials, StatusEffectInstance[]>();
+        temp.put(material, effectInstances);
+        return temp;
+    }
     /**
      * Helper method to create StatusEffectInstances
      * @param effect
