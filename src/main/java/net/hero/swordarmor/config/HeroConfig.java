@@ -66,7 +66,7 @@ public class HeroConfig {
         configs.DEFAULT_CONFIG_LIST.add("Sand Armor Effect: minecraft:fire_resistance, 60, 0");
         configs.DEFAULT_CONFIG_LIST.add("Amethyst Tool Effect: minecraft:glowing, 60, 0");
         configs.DEFAULT_CONFIG_LIST.add("Deep Slate Tool Effect: minecraft:haste, 60, 0");
-        configs.DEFAULT_CONFIG_LIST.add("Sand Tool Effect: minecraft:speed, 60, 1, &" +
+        configs.DEFAULT_CONFIG_LIST.add("Sand Tool Effect: minecraft:speed, 60, 1 &" +
                 " minecraft:nausea, 200, 0");
 
     }
