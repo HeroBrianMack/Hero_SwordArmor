@@ -1,39 +1,77 @@
 package net.hero.swordarmor.config;
 
-import com.mojang.datafixers.util.Pair;
-import net.hero.swordarmor.SwordArmor;
+import net.hero.swordarmor.item.ModArmorMaterials;
+import net.hero.swordarmor.item.ModMaterials;
+import net.hero.swordarmor.item.ModToolMaterials;
+import net.minecraft.entity.effect.StatusEffectInstance;
+
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Scanner;
+
+import static net.hero.effects.Effects.effectMake;
+import static net.hero.swordarmor.SwordArmor.LOGGER;
+import static net.hero.swordarmor.SwordArmor.MOD_ID;
+import static net.hero.swordarmor.config.HeroConfigTest.getEffects;
+import static net.hero.swordarmor.item.custom.ModItemEffects.mapList;
 
 public class HeroConfig {
-    public static SimpleConfig CONFIG;
-    private static ModConfigProvider configs;
 
-    public static String TEST;
-    public static int SOME_INT;
-    public static double SOME_DOUBLE;
-    public static int AMETHYST_ARMOR_EFFECT;
+    //public static HeroConfigTest configs = new HeroConfigTest(MOD_ID);
 
     public static void registerConfigs() {
-        configs = new ModConfigProvider();
-        createConfigs();
-
-        CONFIG = SimpleConfig.of(SwordArmor.MOD_ID + "config").provider(configs).request();
-
-        assignConfigs();
+        //configs = new ModConfigProvider();
+        HeroConfigTest configs = new HeroConfigTest(MOD_ID, LOGGER);
+        createConfigs(configs);
+        configs.configSetup("test.cfg");
+        mapList.add(effectReader(configs.CONFIG_LIST.get(0), ModArmorMaterials.AMETHYST));
+        mapList.add(effectReader(configs.CONFIG_LIST.get(1), ModArmorMaterials.SLATE));
+        mapList.add(effectReader(configs.CONFIG_LIST.get(2), ModArmorMaterials.SAND));
+        mapList.add(effectReader(configs.CONFIG_LIST.get(3), ModToolMaterials.AMETHYST));
+        mapList.add(effectReader(configs.CONFIG_LIST.get(4), ModToolMaterials.SLATE));
+        mapList.add(effectReader(configs.CONFIG_LIST.get(5), ModToolMaterials.SAND));
     }
 
-    private static void createConfigs() {
-        configs.addKeyValuePair(new Pair<>("key.test.value1", "Just a Testing string!"), "String");
-        configs.addKeyValuePair(new Pair<>("key.test.value2", 50), "int");
-        configs.addKeyValuePair(new Pair<>("key.test.value3", 4142.5), "double");
-        configs.addKeyValuePair(new Pair<>("amethyst.armor.effect", "resistance"), "String");
+    public static Map effectReader(String line, ModMaterials material) {
+        ArrayList<StatusEffectInstance> statusEffects = new ArrayList<>();
+        Scanner lineReader = new Scanner(line);
+        try {
+            while (lineReader.hasNext()) {
+                String effectName = lineReader.next().replace(",", "");
+                if (effectName.contains("&")) {
+                    effectName = lineReader.next().replace(",", "");
+                }
+                statusEffects.add(new StatusEffectInstance(getEffects(effectName),
+                        Integer.parseInt(lineReader.next().replace(",", "")),
+                        Integer.parseInt(lineReader.next().replace(",", ""))));
+
+            }
+            LOGGER.info("Successfully read : \"" + line + "\" !");
+            LOGGER.info("Effects: " + statusEffects.size());
+            for (StatusEffectInstance s: statusEffects) {
+                LOGGER.info(s.toString());
+            }
+        } catch(Exception e) {
+            // Unable to read config properly!
+            LOGGER.error("Unable to read: \"" + line + "\" !");
+            LOGGER.error(e.getMessage());
+        }
+        StatusEffectInstance[] instanceArr = new StatusEffectInstance[statusEffects.size()];
+        return effectMake(statusEffects.toArray(instanceArr), material);
     }
 
-    private static void assignConfigs() {
-        TEST = CONFIG.getOrDefault("key.test.value1", "Nothing");
-        SOME_INT = CONFIG.getOrDefault("key.test.value2", 42);
-        SOME_DOUBLE = CONFIG.getOrDefault("key.test.value3", 42.0d);
-        AMETHYST_ARMOR_EFFECT = CONFIG.getOrDefault("amethyst.armor.effect", 32);
+    private static void createConfigs(HeroConfigTest configs) {
+        configs.DEFAULT_CONFIG_LIST.add("Amethyst Armor Effect: minecraft:resistance, 60, 0");
+        configs.DEFAULT_CONFIG_LIST.add("Deep Slate Armor Effect: minecraft:night_vision, 60, 0");
+        configs.DEFAULT_CONFIG_LIST.add("Sand Armor Effect: minecraft:fire_resistance, 60, 0");
+        configs.DEFAULT_CONFIG_LIST.add("Amethyst Tool Effect: minecraft:glowing, 60, 0");
+        configs.DEFAULT_CONFIG_LIST.add("Deep Slate Tool Effect: minecraft:haste, 60, 0");
+        configs.DEFAULT_CONFIG_LIST.add("Sand Tool Effect: minecraft:speed, 60, 1, &" +
+                " minecraft:nausea, 200, 0");
 
-        System.out.println("All " + configs.getConfigsList().size() + " have been set properly");
     }
+
+
+
+
 }
