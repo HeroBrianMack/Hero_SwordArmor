@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class HeroConfigTest {
+public class HeroConfigurations {
     ArrayList<String> DEFAULT_CONFIG_LIST = new ArrayList<>();
     ArrayList<String> CONFIG_LIST = new ArrayList<>();
     private String ModID;
@@ -22,12 +22,13 @@ public class HeroConfigTest {
     private File folder;
 
 
-    public HeroConfigTest(String ModID, Logger logger) {
+    public HeroConfigurations(String ModID, Logger logger) {
         this.ModID = ModID;
         this.logger = logger;
         folder = new File(FabricLoader.getInstance().getConfigDir() + "/" + ModID);
         configDivider = ":";
     }
+
     public boolean configCreate(String fileName) {
         if (!folder.exists() && !folder.mkdirs()) {
             logger.error("SwordArmor's config folder could not generate!");
@@ -71,13 +72,17 @@ public class HeroConfigTest {
             }
         } catch (IncorrectConfigurationException e) {
             logger.error(e.getMessage());
-            logger.info("Using default values!");
-            for (int i = 0; i < DEFAULT_CONFIG_LIST.size(); i++) {
-                if (i >= CONFIG_LIST.size()) {
-                    CONFIG_LIST.add(configFilter(DEFAULT_CONFIG_LIST.get(i)));
-                } else {
-                    CONFIG_LIST.set(i, configFilter(DEFAULT_CONFIG_LIST.get(i)));
-                }
+            defaultValues();
+        }
+    }
+
+    public void defaultValues() {
+        logger.info("Loading default values...");
+        for (int i = 0; i < DEFAULT_CONFIG_LIST.size(); i++) {
+            if (i >= CONFIG_LIST.size()) {
+                CONFIG_LIST.add(configFilter(DEFAULT_CONFIG_LIST.get(i)));
+            } else {
+                CONFIG_LIST.set(i, configFilter(DEFAULT_CONFIG_LIST.get(i)));
             }
         }
     }
@@ -92,8 +97,6 @@ public class HeroConfigTest {
             return line.substring(line.indexOf(configDivider) + 1).trim();
         }
     }
-
-
 
     public static StatusEffect getEffects(String str) {
         return Registry.STATUS_EFFECT.get(new Identifier(str));

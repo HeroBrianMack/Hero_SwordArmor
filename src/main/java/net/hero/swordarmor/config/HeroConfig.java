@@ -12,18 +12,15 @@ import java.util.Scanner;
 import static net.hero.effects.Effects.effectMake;
 import static net.hero.swordarmor.SwordArmor.LOGGER;
 import static net.hero.swordarmor.SwordArmor.MOD_ID;
-import static net.hero.swordarmor.config.HeroConfigTest.getEffects;
+import static net.hero.swordarmor.config.HeroConfigurations.getEffects;
 import static net.hero.swordarmor.item.custom.ModItemEffects.mapList;
 
 public class HeroConfig {
-
-    //public static HeroConfigTest configs = new HeroConfigTest(MOD_ID);
+    private static HeroConfigurations configs = new HeroConfigurations(MOD_ID, LOGGER);
 
     public static void registerConfigs() {
-        //configs = new ModConfigProvider();
-        HeroConfigTest configs = new HeroConfigTest(MOD_ID, LOGGER);
         createConfigs(configs);
-        configs.configSetup("test.cfg");
+        configs.configSetup("SwordArmor.cfg");
         mapList.add(effectReader(configs.CONFIG_LIST.get(0), ModArmorMaterials.AMETHYST));
         mapList.add(effectReader(configs.CONFIG_LIST.get(1), ModArmorMaterials.SLATE));
         mapList.add(effectReader(configs.CONFIG_LIST.get(2), ModArmorMaterials.SAND));
@@ -55,12 +52,15 @@ public class HeroConfig {
             // Unable to read config properly!
             LOGGER.error("Unable to read: \"" + line + "\" !");
             LOGGER.error(e.getMessage());
+            configs.defaultValues();
+            mapList.clear();
+            registerConfigs();
         }
         StatusEffectInstance[] instanceArr = new StatusEffectInstance[statusEffects.size()];
         return effectMake(statusEffects.toArray(instanceArr), material);
     }
 
-    private static void createConfigs(HeroConfigTest configs) {
+    private static void createConfigs(HeroConfigurations configs) {
         configs.DEFAULT_CONFIG_LIST.add("Amethyst Armor Effect: minecraft:resistance, 60, 0");
         configs.DEFAULT_CONFIG_LIST.add("Deep Slate Armor Effect: minecraft:night_vision, 60, 0");
         configs.DEFAULT_CONFIG_LIST.add("Sand Armor Effect: minecraft:fire_resistance, 60, 0");
