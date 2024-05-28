@@ -15,11 +15,11 @@ public class SwordArmorArmors extends ArmorItem {
     /**
      * Constructor for an armor from the SwordArmor mod.
      * @param material The material the armor is made from.
-     * @param slot The equipment slot the armor goes into.
+     * @param type The equipment slot the armor goes into.
      * @param settings The settings (typically ItemGroup) of the armor.
      */
-    public SwordArmorArmors(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
-        super(material, slot, settings);
+    public SwordArmorArmors(ArmorMaterial material, Type type, Settings settings) {
+        super(material, type, settings);
 
     }
 
@@ -28,9 +28,7 @@ public class SwordArmorArmors extends ArmorItem {
         if (!world.isClient()) {
             if (entity instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) entity;
-                //if (ModItemEffects.hasFullSuitOfArmorOn(player)) {
-                    evaluateEffects(player);
-                //}
+                evaluateEffects(player);
             }
         }
 

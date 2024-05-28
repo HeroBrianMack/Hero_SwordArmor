@@ -14,19 +14,7 @@ import java.util.Map;
 import static net.hero.effects.Effects.effectMake;
 
 public class ModItemEffects {
-    public static ArrayList<Map> mapList = new ArrayList<Map>();
-    public static final Map<ModMaterials, StatusEffectInstance[]> AM_TOOL =
-            effectMake(StatusEffects.GLOWING, 60, 0, ModToolMaterials.AMETHYST);
-    static {
-        /*mapList.add(effectMake(StatusEffects.GLOWING, 60, 0, ModArmorMaterials.AMETHYST));
-        mapList.add(effectMake(StatusEffects.HASTE, 60, 0, ModToolMaterials.SLATE));
-        mapList.add(effectMake(StatusEffects.SPEED, 60, 1, ModToolMaterials.SAND));
-        mapList.add(effectMake(StatusEffects.NAUSEA, 200, 0, ModToolMaterials.SAND));
-        mapList.add(effectMake(StatusEffects.RESISTANCE, 60, 0, ModArmorMaterials.AMETHYST));
-        mapList.add(effectMake(StatusEffects.NIGHT_VISION, 60, 0, ModArmorMaterials.SLATE));
-        mapList.add(effectMake(StatusEffects.FIRE_RESISTANCE, 60, 0, ModArmorMaterials.SAND));*/
-    }
-
+    public static ArrayList<Map> mapList = new ArrayList<>();
     /**
      * Handles any effects given to a player by the SwordArmor mod.
      * @param player The player to handle effects for.

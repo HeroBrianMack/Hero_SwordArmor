@@ -2,8 +2,8 @@ package net.hero.swordarmor.config;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 
 import java.io.File;
@@ -99,7 +99,7 @@ public class HeroConfigurations {
     }
 
     public static StatusEffect getEffects(String str) {
-        return Registry.STATUS_EFFECT.get(new Identifier(str));
+        return Registries.STATUS_EFFECT.get(new Identifier(str));
     }
 
     public void configSetup(String fileName) {
