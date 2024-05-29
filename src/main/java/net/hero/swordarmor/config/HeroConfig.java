@@ -36,7 +36,7 @@ public class HeroConfig {
         ArrayList<StatusEffectInstance> statusEffects = new ArrayList<>();
         Scanner lineReader = new Scanner(line);
         ArrayList<RegistryEntry<StatusEffect>> statReg = new ArrayList<>();
-        try {
+        try {//
             while (lineReader.hasNext()) {
                 String effectName = lineReader.next().replace(",", "");
                 if (effectName.contains("&")) {
