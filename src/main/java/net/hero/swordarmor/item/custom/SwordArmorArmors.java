@@ -1,11 +1,13 @@
 package net.hero.swordarmor.item.custom;
 
+import net.hero.swordarmor.item.ModMaterials;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.world.World;
 
 import static net.hero.swordarmor.item.custom.ModItemEffects.evaluateEffects;
@@ -18,7 +20,7 @@ public class SwordArmorArmors extends ArmorItem {
      * @param type The equipment slot the armor goes into.
      * @param settings The settings (typically ItemGroup) of the armor.
      */
-    public SwordArmorArmors(ArmorMaterial material, Type type, Settings settings) {
+    public SwordArmorArmors(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
 
     }

@@ -2,9 +2,7 @@ package net.hero.swordarmor.item.custom;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShovelItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.world.World;
 
 public class SwordArmorShovel extends ShovelItem {
@@ -17,8 +15,8 @@ public class SwordArmorShovel extends ShovelItem {
      * @param settings The settings (typically ItemGroup) of the shovel.
      */
     public SwordArmorShovel(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
-
+        super(material, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(material, attackDamage, attackSpeed)));
+        //super(ToolMaterials.STONE, (new Item.Settings()).attributeModifiers(ShovelItem.createAttributeModifiers(ToolMaterials.STONE, 1.5F, -3.0F)));
     }
 
     @Override

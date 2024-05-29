@@ -16,15 +16,15 @@ import net.minecraft.util.Identifier;
 
 public class SwordGroup {
 
-    public static final RegistryKey<ItemGroup> Tools = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(SwordArmor.MOD_ID, "sword"));
-    public static final RegistryKey<ItemGroup> Armors = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(SwordArmor.MOD_ID, "armor"));
+    public static final RegistryKey<ItemGroup> Tools = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(SwordArmor.MOD_ID, "sword"));
+    public static final RegistryKey<ItemGroup> Armors = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(SwordArmor.MOD_ID, "armor"));
 
     public static void registerItemGroups() {
         Registry.register(Registries.ITEM_GROUP, Tools, FabricItemGroup.builder().
-                icon(() -> new ItemStack(ModItems.SLATE_AXE)).displayName(Text.translatable("Tool-group"))
+                icon(() -> new ItemStack(ModItems.SLATE_SHOVEL)).displayName(Text.translatable("Tool-group"))
                 .build());
         Registry.register(Registries.ITEM_GROUP, Armors, FabricItemGroup.builder().
-                icon(() -> new ItemStack(ModItems.AMETHYST_CHESTPLATE)).displayName(Text.translatable("Armor-group"))
+                icon(() -> new ItemStack(ModItems.SAND_BOOTS)).displayName(Text.translatable("Armor-group"))
                 .build());
     }
 

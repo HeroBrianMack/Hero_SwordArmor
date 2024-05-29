@@ -15,7 +15,7 @@ public class SwordArmorHoe extends HoeItem {
      * @param settings The settings (typically ItemGroup) of the hoe.
      */
     public SwordArmorHoe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+        super(material, settings.attributeModifiers(HoeItem.createAttributeModifiers(material, attackDamage, attackSpeed)));
     }
 
     @Override

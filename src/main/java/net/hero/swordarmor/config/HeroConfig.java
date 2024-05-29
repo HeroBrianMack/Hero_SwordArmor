@@ -3,7 +3,10 @@ package net.hero.swordarmor.config;
 import net.hero.swordarmor.item.ModArmorMaterials;
 import net.hero.swordarmor.item.ModMaterials;
 import net.hero.swordarmor.item.ModToolMaterials;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.item.ArmorMaterial;
+import net.minecraft.registry.entry.RegistryEntry;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -21,15 +24,48 @@ public class HeroConfig {
     public static void registerConfigs() {
         createConfigs(configs);
         configs.configSetup("SwordArmor.cfg");
-        mapList.add(effectReader(configs.CONFIG_LIST.get(0), ModArmorMaterials.AMETHYST));
-        mapList.add(effectReader(configs.CONFIG_LIST.get(1), ModArmorMaterials.SLATE));
-        mapList.add(effectReader(configs.CONFIG_LIST.get(2), ModArmorMaterials.SAND));
-        mapList.add(effectReader(configs.CONFIG_LIST.get(3), ModToolMaterials.AMETHYST));
-        mapList.add(effectReader(configs.CONFIG_LIST.get(4), ModToolMaterials.SLATE));
-        mapList.add(effectReader(configs.CONFIG_LIST.get(5), ModToolMaterials.SAND));
+//        mapList.add(effectReader(configs.CONFIG_LIST.get(0), ModArmorMaterials.AMETHYST.value()));
+//        mapList.add(effectReader(configs.CONFIG_LIST.get(1), ModArmorMaterials.SLATE.value()));
+//        mapList.add(effectReader(configs.CONFIG_LIST.get(2), ModArmorMaterials.SAND.value()));
+        //mapList.add(effectReader(configs.CONFIG_LIST.get(3), ModToolMaterials.AMETHYST));
+        //mapList.add(effectReader(configs.CONFIG_LIST.get(4), ModToolMaterials.SLATE));
+        //mapList.add(effectReader(configs.CONFIG_LIST.get(5), ModToolMaterials.SAND));
     }
 
     public static Map effectReader(String line, ModMaterials material) {
+        ArrayList<StatusEffectInstance> statusEffects = new ArrayList<>();
+        Scanner lineReader = new Scanner(line);
+        ArrayList<RegistryEntry<StatusEffect>> statReg = new ArrayList<>();
+        try {
+            while (lineReader.hasNext()) {
+                String effectName = lineReader.next().replace(",", "");
+                if (effectName.contains("&")) {
+                    effectName = lineReader.next().replace(",", "");
+                }
+                statusEffects.add(new StatusEffectInstance(RegistryEntry.of(getEffects(effectName)),
+                        Integer.parseInt(lineReader.next().replace(",", "")),
+                        Integer.parseInt(lineReader.next().replace(",", ""))));
+            }
+            LOGGER.info("Successfully read : \"" + line + "\" !");
+            LOGGER.info("Effects: " + statusEffects.size());
+            for (StatusEffectInstance s: statusEffects) {
+                LOGGER.info(s.toString());
+            }
+        } catch(Exception e) {
+            // Unable to read config properly!
+            LOGGER.error("Unable to read: \"" + line + "\" !");
+            LOGGER.error(e.getMessage());
+            configs.defaultValues();
+            mapList.clear();
+            registerConfigs();
+        }
+        StatusEffectInstance[] instanceArr = new StatusEffectInstance[statusEffects.size()];
+        statReg.add(statusEffects.get(0).getEffectType());
+        //return effectMake(statusEffects.toArray(instanceArr), material);
+        return effectMake(RegistryEntry.of(statusEffects.toArray(instanceArr)), material);
+    }
+
+    public static Map effectReader(String line, ArmorMaterial material) {
         ArrayList<StatusEffectInstance> statusEffects = new ArrayList<>();
         Scanner lineReader = new Scanner(line);
         try {
@@ -38,10 +74,9 @@ public class HeroConfig {
                 if (effectName.contains("&")) {
                     effectName = lineReader.next().replace(",", "");
                 }
-                statusEffects.add(new StatusEffectInstance(getEffects(effectName),
+                statusEffects.add(new StatusEffectInstance(RegistryEntry.of(getEffects(effectName)),
                         Integer.parseInt(lineReader.next().replace(",", "")),
                         Integer.parseInt(lineReader.next().replace(",", ""))));
-
             }
             LOGGER.info("Successfully read : \"" + line + "\" !");
             LOGGER.info("Effects: " + statusEffects.size());

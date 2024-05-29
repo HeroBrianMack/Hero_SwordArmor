@@ -5,6 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.world.World;
 
 public class SwordArmorAxe extends AxeItem {
@@ -18,7 +19,7 @@ public class SwordArmorAxe extends AxeItem {
      * @param settings The settings (typically ItemGroup) of the axe.
      */
     public SwordArmorAxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+        super(material, settings.attributeModifiers(AxeItem.createAttributeModifiers(material, attackDamage, attackSpeed)));
 
     }
 

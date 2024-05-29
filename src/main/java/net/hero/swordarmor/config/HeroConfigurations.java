@@ -99,7 +99,7 @@ public class HeroConfigurations {
     }
 
     public static StatusEffect getEffects(String str) {
-        return Registries.STATUS_EFFECT.get(new Identifier(str));
+        return Registries.STATUS_EFFECT.get(Identifier.of(str));
     }
 
     public void configSetup(String fileName) {

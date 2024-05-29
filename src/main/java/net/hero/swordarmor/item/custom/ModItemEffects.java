@@ -1,37 +1,59 @@
 package net.hero.swordarmor.item.custom;
 
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.hero.swordarmor.item.ModArmorMaterials;
 import net.hero.swordarmor.item.ModMaterials;
 import net.hero.swordarmor.item.ModToolMaterials;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.server.MinecraftServer;
 
 import java.util.ArrayList;
 import java.util.Map;
 
 import static net.hero.effects.Effects.effectMake;
+import static net.hero.swordarmor.SwordArmor.LOGGER;
 
 public class ModItemEffects {
+    public static boolean stop = false;
     public static ArrayList<Map> mapList = new ArrayList<>();
+
+    static {
+        mapList.add(effectMake(StatusEffects.GLOWING, 60, 0, ModToolMaterials.AMETHYST));
+        mapList.add(effectMake(StatusEffects.HASTE, 60, 0, ModToolMaterials.SLATE));
+        mapList.add(effectMake(StatusEffects.SPEED, 60, 1, ModToolMaterials.SAND));
+        mapList.add(effectMake(StatusEffects.NAUSEA, 200, 0, ModToolMaterials.SAND));
+        //mapList.add(effectMake(StatusEffects.RESISTANCE, 60, 0, ModArmorMaterials.AMETHYST));
+        //mapList.add(effectMake(StatusEffects.NIGHT_VISION, 60, 0, ModArmorMaterials.SLATE));
+        //mapList.add(effectMake(StatusEffects.FIRE_RESISTANCE, 60, 0, ModArmorMaterials.SAND));
+    }
     /**
      * Handles any effects given to a player by the SwordArmor mod.
      * @param player The player to handle effects for.
      */
+
     public static void evaluateEffects(PlayerEntity player) {
         for (Map<ModMaterials, StatusEffectInstance[]> itemMap: mapList) {
             for (Map.Entry<ModMaterials, StatusEffectInstance[]> entry : itemMap.entrySet()) {
                 ModMaterials mapMaterial = entry.getKey();
                 StatusEffectInstance[] mapStatusEffects = entry.getValue();
 
-                if (isCorrect(mapMaterial, player)) {
+                if (isCorrect(mapMaterial, player) && !stop) {
                     for (StatusEffectInstance mapStatusEffect : mapStatusEffects)
                     addStatusEffectForMaterial(player, mapStatusEffect);
                 }
             }
         }
     }
+
+
+
+
+
 
     /**
      * Gives the status effect to the player.

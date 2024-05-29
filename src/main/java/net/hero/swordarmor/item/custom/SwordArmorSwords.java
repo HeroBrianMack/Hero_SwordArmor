@@ -2,6 +2,7 @@ package net.hero.swordarmor.item.custom;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
@@ -17,8 +18,7 @@ public class SwordArmorSwords extends SwordItem {
      * @param settings The settings (typically ItemGroup) of the sword.
      */
     public SwordArmorSwords(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-        super(material,attackDamage, attackSpeed, settings);
-
+        super(material, settings.attributeModifiers(SwordItem.createAttributeModifiers(material, attackDamage, attackSpeed)));
     }
 
     @Override
