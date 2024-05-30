@@ -61,40 +61,40 @@ public class ModItems {
                     new Item.Settings()), Tools);
     public static final Item AMETHYST_HELMET = registerItem("amethyst_helmet",
             new SwordArmorArmors(ModArmorMaterials.AMETHYST, ArmorItem.Type.HELMET,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item AMETHYST_CHESTPLATE = registerItem("amethyst_chestplate",
             new SwordArmorArmors(ModArmorMaterials.AMETHYST, ArmorItem.Type.CHESTPLATE,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item AMETHYST_LEGGINGS = registerItem("amethyst_leggings",
             new SwordArmorArmors(ModArmorMaterials.AMETHYST, ArmorItem.Type.LEGGINGS,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item AMETHYST_BOOTS = registerItem("amethyst_boots",
             new SwordArmorArmors(ModArmorMaterials.AMETHYST, ArmorItem.Type.BOOTS,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item SAND_HELMET = registerItem("sand_helmet",
             new SwordArmorArmors(ModArmorMaterials.SAND, ArmorItem.Type.HELMET,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item SAND_CHESTPLATE = registerItem("sand_chestplate",
             new SwordArmorArmors(ModArmorMaterials.SAND, ArmorItem.Type.CHESTPLATE,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item SAND_LEGGINGS = registerItem("sand_leggings",
             new SwordArmorArmors(ModArmorMaterials.SAND, ArmorItem.Type.LEGGINGS,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item SAND_BOOTS = registerItem("sand_boots",
             new SwordArmorArmors(ModArmorMaterials.SAND, ArmorItem.Type.BOOTS,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item SLATE_HELMET = registerItem("slate_helmet",
             new SwordArmorArmors(ModArmorMaterials.SLATE, ArmorItem.Type.HELMET,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item SLATE_CHESTPLATE = registerItem("slate_chestplate",
             new SwordArmorArmors(ModArmorMaterials.SLATE, ArmorItem.Type.CHESTPLATE,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item SLATE_LEGGINGS = registerItem("slate_leggings",
             new SwordArmorArmors(ModArmorMaterials.SLATE, ArmorItem.Type.LEGGINGS,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
     public static final Item SLATE_BOOTS = registerItem("slate_boots",
             new SwordArmorArmors(ModArmorMaterials.SLATE, ArmorItem.Type.BOOTS,
-                    new Item.Settings()), Armors);
+                    new Item.Settings().maxCount(1)), Armors);
 
 
     private static Item registerItem(String name, Item item, RegistryKey<ItemGroup> group) {
