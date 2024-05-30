@@ -10,6 +10,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.MinecraftServer;
 
 import java.util.ArrayList;
@@ -27,9 +28,9 @@ public class ModItemEffects {
         mapList.add(effectMake(StatusEffects.HASTE, 60, 0, ModToolMaterials.SLATE));
         mapList.add(effectMake(StatusEffects.SPEED, 60, 1, ModToolMaterials.SAND));
         mapList.add(effectMake(StatusEffects.NAUSEA, 200, 0, ModToolMaterials.SAND));
-        //mapList.add(effectMake(StatusEffects.RESISTANCE, 60, 0, ModArmorMaterials.AMETHYST));
-        //mapList.add(effectMake(StatusEffects.NIGHT_VISION, 60, 0, ModArmorMaterials.SLATE));
-        //mapList.add(effectMake(StatusEffects.FIRE_RESISTANCE, 60, 0, ModArmorMaterials.SAND));
+        mapList.add(effectMake(StatusEffects.RESISTANCE, 60, 0, ModArmorMaterials.AMETHYST));
+        mapList.add(effectMake(StatusEffects.NIGHT_VISION, 60, 0, ModArmorMaterials.SLATE));
+        mapList.add(effectMake(StatusEffects.FIRE_RESISTANCE, 60, 0, ModArmorMaterials.SAND));
     }
     /**
      * Handles any effects given to a player by the SwordArmor mod.
@@ -37,12 +38,12 @@ public class ModItemEffects {
      */
 
     public static void evaluateEffects(PlayerEntity player) {
-        for (Map<ModMaterials, StatusEffectInstance[]> itemMap: mapList) {
-            for (Map.Entry<ModMaterials, StatusEffectInstance[]> entry : itemMap.entrySet()) {
-                ModMaterials mapMaterial = entry.getKey();
+        for (Map<Object, StatusEffectInstance[]> itemMap: mapList) {
+            for (Map.Entry<Object, StatusEffectInstance[]> entry : itemMap.entrySet()) {
+                Object objMaterial = entry.getKey();
                 StatusEffectInstance[] mapStatusEffects = entry.getValue();
 
-                if (isCorrect(mapMaterial, player) && !stop) {
+                if (isCorrect(objMaterial, player) && !stop) {
                     for (StatusEffectInstance mapStatusEffect : mapStatusEffects)
                     addStatusEffectForMaterial(player, mapStatusEffect);
                 }
@@ -75,9 +76,9 @@ public class ModItemEffects {
      * @param player The player to check.
      * @return If the player is wearing a set of armor or holding an item of the material.
      */
-    public static boolean isCorrect(ModMaterials material, PlayerEntity player) {
-        return (material instanceof ModArmorMaterials && hasCorrectArmorOn(material, player)) ||
-                (material instanceof ModToolMaterials && hasCorrectItemHeld(material, player));
+    public static boolean isCorrect(Object material, PlayerEntity player) {
+        return (material instanceof RegistryEntry && hasCorrectArmorOn((RegistryEntry<ArmorMaterial>) material, player)) ||
+                (material instanceof ModToolMaterials && hasCorrectItemHeld((ModMaterials) material, player));
     }
 
     /**
@@ -116,7 +117,7 @@ public class ModItemEffects {
      * @param player The player being checked.
      * @return If the player's set of armor matches the material
      */
-    public static boolean hasCorrectArmorOn(ModMaterials material, PlayerEntity player) {
+    public static boolean hasCorrectArmorOn(RegistryEntry<ArmorMaterial> material, PlayerEntity player) {
         try {
             ArmorItem boots = ((ArmorItem) player.getInventory().getArmorStack(0).getItem());
             ArmorItem leggings = ((ArmorItem) player.getInventory().getArmorStack(1).getItem());

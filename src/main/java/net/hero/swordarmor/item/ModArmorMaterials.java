@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 
 import static net.minecraft.registry.Registry.registerReference;
 
-public class ModArmorMaterials extends net.minecraft.item.ArmorMaterials implements ModMaterials {
+public class ModArmorMaterials extends ArmorMaterials implements ModMaterials {
     /*AMETHYST("amethyst", 30, new int[]{3, 6, 8, 3}, 20, SoundEvents.BLOCK_AMETHYST_CLUSTER_STEP, 2.0F, 0.0F, () -> {
         return Ingredient.ofItems(new ItemConvertible[]{Items.AMETHYST_SHARD});
     }),*/

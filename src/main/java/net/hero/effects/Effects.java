@@ -20,8 +20,8 @@ public class Effects {
      * @param material The material.
      * @return A Map with the material as a key, and the status effect as a value.
      */
-    public static Map effectMake(RegistryEntry<StatusEffect> effect, int duration, int amp, ModMaterials material) {
-        Map temp = new HashMap<ModMaterials, StatusEffectInstance[]>();
+    public static Map effectMake(RegistryEntry<StatusEffect> effect, int duration, int amp, Object material) {
+        Map temp = new HashMap<Object, StatusEffectInstance[]>();
                 temp.put(material, new StatusEffectInstance[]{new StatusEffectInstance(effect, duration, amp)});
         return temp;
     }
